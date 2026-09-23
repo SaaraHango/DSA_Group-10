@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Random;
 
-public class SortingExperiment; {
+public class Sorting_Saara {
 
 //This is used to count comparisons
    static long comparisons;
@@ -10,7 +10,8 @@ public class SortingExperiment; {
 
    public static void selectionSort(int[] arr){
     
-    for (int i=0; i < arr.length) - 1; i++) {
+    for (int i=0; i < arr.length - 1; i++) {
+
         int  minIndex=i;
         for (int j= i+1; j< arr.length; j++){
 
@@ -19,7 +20,8 @@ comparisons++;
 
     if  (arr[j] < arr[minIndex]){
         minIndex=j;
-}
+
+    }
         }
         //Then we swap
         int temp =arr[i];
@@ -38,10 +40,10 @@ public static void  insertionSort(int[] arr){
         while (j>=0){
 //Comparison between two values
 
-    comparison++;
+    comparisons++;
     if(arr[j]> key){
         arr[j+1]= arr [j];
-        j--1;
+        j--;
     } else {
         break;
     }
@@ -62,7 +64,7 @@ public static void  insertionSort(int[] arr){
              
              int[] left = Arrays.copyOfRange( arr, 0, middle);
 
-             int right = Aerrays.copyOfRange(arr, middle, arr.length);
+             int[] right = Arrays.copyOfRange(arr, middle, arr.length);
 
              mergeSort(left); 
              mergeSort(right);
@@ -75,7 +77,7 @@ public static void  insertionSort(int[] arr){
             int j=0;
             int k=0;
 
-            while (i < left.length && j < right.lenghth){
+            while (i < left.length && j < right.length){
 
                 //Comparison between two data values
 
@@ -107,7 +109,7 @@ public static void  insertionSort(int[] arr){
             int j = high;
 
             //Now we choose a middle element as a pivot
-             int pivot = arr[ ([low + high]) /2];
+             int pivot = arr [(low + high) /2];
              while (i <= high) {
 
                 comparisons++;
@@ -141,21 +143,23 @@ public static void  insertionSort(int[] arr){
                 i++;
                 j--;
              }
+           if ( low < j){
+            quickSort(arr, low, j);
            }
-           if (i< high){
+           if (i < high){
             quickSort(arr, i, high);
            }
         }
         //GENERATE RANDOM ARRAY
 
         public static int[] generateArray (int size){
-            Random random = new Random;
+            Random random = new Random(42);
 
             int[] arr = new int[size];
-            arr[i] = random.nextInt(10000);
-        }
+            for (int i = 0; i < size; i++){
+                arr[i] = random.nextInt(10000);
+            }
         return arr;
-        {
     }
 
     //RUN ONE SORTING TEST
@@ -185,11 +189,11 @@ public static void  insertionSort(int[] arr){
                 mergeSort(testArray);
 
             }else if (algorithm.equals("Quick Sort")){
-                quickSort(testArray);
+                quickSort(testArray, 0, testArray.length - 1);
             }
             //End timing immidiately after sorting
 
-            long endTime = Systems.nanoTime();
+            long endTime = System.nanoTime();
             
             long executionTime = endTime - startTime;
 
@@ -200,12 +204,13 @@ public static void  insertionSort(int[] arr){
                 comparisons, 
                 executionTime
             );
+        }
             //THE ADDITIONAL ALMOST - SORTED TEST
             
-            public static int[] createAlmostSortedArray(int[] original.length);
+            public static int[] createAlmostSortedArray(int[] original){
 
             //First sort the original array
-            int[] arr = Arrays.copyOf(original, originl.length);
+            int[] arr = Arrays.copyOf(original, original.length);
 
             Arrays.sort(arr);
 
@@ -240,7 +245,7 @@ public static void  insertionSort(int[] arr){
             System.out.println(
                 "===================================="
             );
-            System.out.println(
+            System.out.printf(
                 "%-18s %-10s %-18s %-15s%n",
                 "Algorithm",
                 "Input Size",
@@ -248,7 +253,7 @@ public static void  insertionSort(int[] arr){
                 "TIme (ns)"
             );
             System.out.println();
-        }
+
         //ALMOST-SORTED TEST
         System.out.println();
         System.out.println(
@@ -274,15 +279,15 @@ public static void  insertionSort(int[] arr){
             int[] original100 = generateArray(100);
 
             //Create almost-sorted version
-            int[] almostSorted = createAlmostSortedArray(origional100);
+            int[] almostSorted = createAlmostSortedArray(original100);
 
             //Test all four algorithms using the same almost-sorted array
-            for (String algoritm : algorithms) {
+            for (String algorithm : algorithms) {
 
                 runTest(algorithm, almostSorted);
             }
              System.out.println(
                 "============================"
              );
-}
+        }
 }
