@@ -1,0 +1,82 @@
+Creating queue data structure
+START
+int size = 6
+int queue = new int[size]
+front = -1
+rear = -1
+
+enqueue(num) {
+IF (rear == size -1) THEN
+     DISPLAY “Queue is full”
+ELSE IF (front == -1 AND  rear == -1) THEN
+   front = 0
+   rear = 0 
+   queue [rear] = num
+ELSE 
+        rear++
+        queue[rear] = num
+ENDIF
+}
+ 
+
+Dequeue(remove element from queue)
+dequeue() {
+IF(rear == -1 AND front == -1 ) THEN
+     DISPLAY “Queue is empty”
+ELSE IF (rear == front) THEN
+     DISPLAY “Deleted element:” queue[front]
+            front = -1
+            rear = -1
+ELSE
+        DISPLAY “ Deleted element:”queue[front]
+        front++
+ENDIF
+}
+
+Peek(check what the first element in the queue is)
+peek() {
+   IF (front == -1 AND rear == -1) THEN 
+       DISPLAY “Queue is empty”
+   ELSE
+       DISPLAY  queue[front]
+ENDIF
+}
+
+Is Empty
+isEmpty() {
+   IF(front == -1 AND rear == -1) THEN
+      DISPLAY ”Queue is empty!”
+   ELSE
+      DISPLAY “Queue is not empty!”
+   ENDIF
+}
+
+Display
+displayQueue () {
+   IF(rear == -1 AND front == -1) THEN
+        DISPLAY “Queue is empty”
+ELSE 
+       FOR(i=front, i<rear+1, i++) THEN
+         DISPLAY queue[i]
+        ENDFOR
+  ENDIF
+}
+Enqueue(Inserting elements into queue)
+
+enqueue(221045678)
+enqueue(222034512)
+enqueue(223041876)
+enqueue(221067341)
+enqueue(226089963)
+enqueue(224089863)
+
+isEmpty()
+
+Delete elements from the queue
+dequeue()
+dequeue()
+dequeue()
+
+peek()
+displayQueue()
+END
