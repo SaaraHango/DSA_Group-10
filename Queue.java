@@ -84,7 +84,9 @@ static void displayQueue() {
     enqueue(221067341);
     enqueue(226089963);
     enqueue(224089863);
-           
+          
+    isEmpty();      
+          
     dequeue();
     dequeue();
     dequeue();
