@@ -12,7 +12,7 @@
 # How to run code:
 
 ## Prerequisites
-1.Make sure you have VS CODE STUDIO and Java JDK
+1. Make sure you have VS CODE STUDIO and Java JDK
 
 2. Downloaded the appropriate extensions(Java and Code runner and Git pull)
   
